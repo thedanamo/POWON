@@ -2,7 +2,7 @@
 
     foreach($groupInfo as $row) {
         $group_id = $row->group_id;
-        $owner_id = $row->powon_id;
+        $owner_id = $row->owner_id;
         $group_name = $row->name;
         $group_description = $row->description;
     }
