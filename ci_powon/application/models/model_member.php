@@ -48,16 +48,19 @@ class model_Member extends CI_Model{
     }
 
     function login($username, $password) {
-    $sql = "SELECT powon_id, username, password, status, privilege
-                FROM member WHERE username = '$username' AND password = '$password'";
-    $query = $this->db->query($sql);
-    if($query -> num_rows() == 1) {
-        return $query->result();
+        $sql = "SELECT powon_id, username, password, status, privilege
+                    FROM member WHERE username = '$username' AND password = '$password'";
+        $query = $this->db->query($sql);
+        if($query -> num_rows() == 1) {
+            return $query->result();
+        }
+        else {
+            return false;
+        }
     }
-    else {
-        return false;
-    }
-}
+
+
+
 
     //REFERENCE
 

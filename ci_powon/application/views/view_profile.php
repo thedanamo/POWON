@@ -8,6 +8,8 @@
         echo "<br>";
         echo "Last name: " . $row->last_name;
         echo "<br>";
+        echo "Email: " . $row->email;
+        echo "<br>";
         echo "Address: " . $row->address;
         echo "<br>";
         echo "Date of Birth: " . $row->dob;
