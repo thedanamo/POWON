@@ -27,7 +27,7 @@ class Controller_group extends CI_Controller {
 
         //add owner to member of group table
         $groupMemberData = array (
-            'powon_id' => $powon_id,
+            'powon_id' => $$owner_id,
             'group_id' => $group_id,
         );
         $this->model_group->insertMemberOfGroup($groupMemberData);
@@ -131,7 +131,7 @@ class Controller_group extends CI_Controller {
 
 
     public function groupInviteRequestPage($group_id) {
-        
+
         $data['title'] = "Invite Member";
         $data['group_id'] = $group_id;
 
