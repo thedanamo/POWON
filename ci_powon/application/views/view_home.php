@@ -17,11 +17,9 @@
         if($this->session->userdata('privilege') == "admin") {
             echo "<h2>Admin Options</h2>";
             echo "<ul>";
-                echo "<li>" . anchor('home', 'Public Post') . "</li>";
-                echo "<li>" . anchor('home', 'Change Member Status') . "</li>";
-                echo "<li>" . anchor('home', 'Change Member Privilege') . "</li>";
-                echo "<li>" . anchor('home', 'Delete Member') . "</li>";
-                echo "<li>" . anchor('home', 'Delete Group') . "</li>";
+            echo "<li>" . anchor('controller_admin/createPublicPostPage', 'Create Public Post') . "</li>";
+            echo "<li>" . anchor('controller_admin/editDeleteMembersPage', 'Edit/Delete Member') . "</li>";
+            echo "<li>" . anchor('home', 'Edit/Delete Group') . "</li>";
             echo "<ul>";
         }
     ?>
@@ -29,6 +27,20 @@
 
 <section>
     <h2>Public Posts</h2>
+    <?php
+    foreach($publicPosts as $row) {
+        $content = $row->content;
+        $currentDateTime = $row->date;
+        $username = $row -> username;
+        echo "Admin Username: " . $username;
+        echo "<br>";
+        echo "Date: " . $currentDateTime;
+        echo "<br>";
+        echo "Content: " . $content;
+        echo "<br>";
+        echo "<br>";
+    }
+    ?>
     <h2>Threads</h2>
 
     <?php

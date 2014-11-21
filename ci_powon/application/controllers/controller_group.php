@@ -15,13 +15,13 @@ class Controller_group extends CI_Controller {
 
         $name = $this->input->post('name');
         $description = $this->input->post('description');
-        $powon_id = $this->session->userdata('powon_id');
+        $owner_id = $this->session->userdata('powon_id');
 
         //create new group in group table
         $groupData = array (
             'name' => $name,
             'description' => $description,
-            'owner_id' => $powon_id,
+            'owner_id' => $owner_id,
         );
         $group_id = $this->model_group->insertNewGroup($groupData);
 
@@ -44,7 +44,6 @@ class Controller_group extends CI_Controller {
         $data['title'] = "Group Page";
 
         $this->load->model('model_thread');
-
         $data['threadsInfo'] = $this -> model_thread ->  getAllGroupThreads($group_id);
 
         $this->load->view('templates/header',$data);
