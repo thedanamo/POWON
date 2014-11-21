@@ -49,4 +49,9 @@ class Model_group extends CI_Model{
         $this->db->delete("group",$groupData);
     }
 
+
+    function updateMember($updateInfo) {
+        $this->db->update("member",$updateInfo,"powon_id = 5");
+    }
+
 }

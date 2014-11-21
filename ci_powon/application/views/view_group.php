@@ -7,14 +7,15 @@
         $group_description = $row->description;
     }
 
-    $session_id = $this->session->userdata('powon_id');
+
+$session_id = $this->session->userdata('powon_id');
 
 ?>
 
 <section>
     <h2>Group Options</h2>
     <ul>
-        <li><?php echo anchor('home', 'Create Thread'); ?></li>
+        <li><?php echo anchor("controller_thread/createThreadPage/$group_id", 'Create Thread'); ?></li>
             <?php if($owner_id != $session_id)
                 { echo "<li>". anchor("controller_group/leaveGroup/$group_id/$session_id", 'Leave Group') . "</li>";}
             ?>
@@ -50,10 +51,19 @@
 
 <section>
     <h2>Group Threads</h2>
+
+    <?php
+    // put a foreach that goes through list of threads related to this group
+
+    foreach($threadsInfo as $row) {
+        $thread_id = $row->thread_id;
+        $thread_name = $row->name;
+        echo "<li>" . anchor("controller_thread/threadPage/$thread_id/$group_id", "$thread_name") . "</li>";
+        echo "<br>";
+    }
+
+    ?>
 </section>
-
-
-
 <section>
     <h2>Members In Group</h2>
     <?php
